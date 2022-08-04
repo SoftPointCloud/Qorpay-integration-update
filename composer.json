@@ -14,7 +14,7 @@
         "doctrine/dbal": "^3.3.6",
         "fruitcake/laravel-cors": "^3.0",
         "google/recaptcha": "^1.2",
-        "guzzlehttp/guzzle": "^7.4.3",
+        "guzzlehttp/guzzle": "^7.4",
         "hisorange/browser-detect": "^4.5",
         "laravel-validation-rules/credit-card": "^1.7",
         "laravel/framework": "^9.15",

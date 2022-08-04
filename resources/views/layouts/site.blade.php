@@ -27,6 +27,8 @@
   <!-- Styles -->
   <link href="{{ asset('css/site.css') }}"
         rel="stylesheet">
+        <script src="https://secure.qorcommerce.io/payFrame/js/QorPaymentForm.js"></script>
+
 </head>
 
 <body>

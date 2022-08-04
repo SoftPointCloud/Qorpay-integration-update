@@ -26,4 +26,18 @@ Route::namespace('Api')->group(function () {
     Route::get('/store/{store_code}/meal-plan-stats', [StoreController::class, 'mealPlanStats']);
     Route::get('/user/exists', [UserController::class, 'exists']);
     Route::post('/newsletter/register', [NewsletterController::class, 'register']);
+    Route::get('/cart/{id}', [StoreLocationController::class, 'cart']);
+    Route::get('/carts', [StoreLocationController::class, 'carts']);
+    Route::get('/cart-total', [StoreLocationController::class, 'total']);
+    Route::get('/createtoken', [StoreLocationController::class, 'createtoken']);
+
+
+});
+Route::fallback(function() {
+    return response()->json([
+        'data' => [],
+        'success' => false,
+        'status' => 404,
+        'message' => 'Invalid Route'
+    ]);
 });

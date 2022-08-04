@@ -13,4 +13,6 @@ class UserController extends Controller
         $email = $request->get('email', 'unknown');
         return User::where('email', '=', $email)->exists();
     }
+
+    
 }

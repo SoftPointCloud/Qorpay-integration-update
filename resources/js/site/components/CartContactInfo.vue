@@ -83,6 +83,7 @@ export default {
   },
 
   mounted() {
+    
     this.email = this.defaultEmail;
     this.firstName = this.defaultFirstName;
     this.lastName = this.defaultLastName;

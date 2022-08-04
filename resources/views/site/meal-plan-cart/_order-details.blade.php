@@ -1,5 +1,4 @@
-		</script>
-
+ 
 <div class="edit-cart">
   <a class="text-white"
      href="{{ $editCartUrl }}">Edit Cart</a>
@@ -80,4 +79,9 @@
                      :tax='@json($cart->total_tax)'
                      :total='@json($cart->order_total)'>
   </cart-order-totals>
+
+
+  
+
 </div>
+ 

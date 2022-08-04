@@ -155,7 +155,7 @@
 
               <div class="col-sm-12 col-md-6 mt-3 mt-md-0">
                 <h5 v-if="deliveryAvailable" class="bold-orange">Pick up or Delivery</h5>
-                <h5 v-if="!deliveryAvailable" class="bold-orange">Pick up Locationsss</h5>
+                <h5 v-if="!deliveryAvailable" class="bold-orange">Pick up Locations</h5>
 
                 <div class="form-group">
                   <div id="how-to-get">

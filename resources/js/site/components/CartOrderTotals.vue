@@ -5,8 +5,10 @@
       <div class="col-4 col-sm-2">
         <div class="pull-right bold">
           {{ subtotal | toCurrency }}
+          
         </div>
       </div>
+ 
     </div>
 
     <div v-if="deliveryFee > 0" class="row">
@@ -57,13 +59,14 @@
       <div class="col-4 col-sm-2">
         <div class="pull-right bold">
           {{ (total + tip) | toCurrency }}
-        </div>
+        </div>   
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   props: {
     subtotal: Number,
@@ -86,6 +89,14 @@ export default {
     });
   },
 
-  methods: {},
+  methods: {
+    
+  },
+  
+  
+
+
 };
+
+
 </script>

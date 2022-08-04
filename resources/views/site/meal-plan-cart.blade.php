@@ -1,9 +1,8 @@
+ 
+      
 @extends('layouts.site')
 
 @section('content')
-
-
-
   <div class="gray-header-panel">
     <h1>Shopping Cart</h1>
   </div>
@@ -64,6 +63,8 @@
                         )
                         <hr class="hr-legacy">
                       @endif
+    
+                    
                       <cart-order-form form-action="{{ route('site.order.save') }}"
                                        default-email="{{ $defaultEmail }}"
                                        edit-cart-url="{{ $editCartUrl }}">
@@ -74,6 +75,7 @@
                                            :is-logged-in='@json(Auth::check())'
                                            :form-errors="{{ $errors->toJson() }}">
                         </cart-contact-info>
+                      
 
                         <cart-billing-info :default-payment-type='@json(old('payment_type', 'online'))'
                                            :default-name='@json($defaultName)'
@@ -85,28 +87,46 @@
                                            :in-store-payments-only='@json($inStorePaymentsOnly)'
                                            :form-errors="{{ $errors->toJson() }}">
                         </cart-billing-info>
+                       
                       </cart-order-form>
+ 
                     </div>
                   </div>
                 </td>
                 <td data-method="right-box"
+                
                     class="ce-cart-rightbox d-none d-md-block">
                   @include(
                       'site.meal-plan-cart._order-details',
                       ['cart' => $cart]
                   )
+
+                  <support-total-amount
+                     :total='@json($cart->order_total)'
+                     >
+  </support-total-amount>
                 </td>
               </tr>
             </tbody>
           </table>
-
+                    
         </div>
+
+</div>
+<!-- <cart-order-totals :subtotal='@json($cart->sub_total)'
+                     :delivery-fee='@json($cart->delivery_fee)'
+                     :satellite-fee='@json($cart->satellite_fee)'
+                     :discount='@json($cart->discount_amount)'
+                     :tax='@json($cart->total_tax)'
+                     :total='@json($cart->order_total)'>
+  </cart-order-totals> -->
+
       </div>
     </div>
   </div>
-  <script src="https://secure.qorcommerce.io/payFrame/js/QorPaymentForm.js"></script>
-   
+	
 @endsection
+<script src="https://secure.qorcommerce.io/payFrame/js/QorPaymentForm.js"></script>
 
 @if (Session::has('addedToCart'))
   @push('scripts')

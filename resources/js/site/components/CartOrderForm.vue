@@ -1,4 +1,5 @@
 <template>
+
   <form method="POST" id="order-form" ref="form" v-bind:action="formAction">
     <input type="hidden" :value="csrfToken" name="_token" />
     <input type="hidden" :value="cardToken" name="card_token" />
@@ -13,6 +14,11 @@
         <a v-bind:href="editCartUrl"><i class="fa fa-caret-left"></i> Return to Menu</a>
       </div>
       <div class="col-sm-7">
+
+
+        <button id="my-submit-button" class="btn btn-lg btn-orange w-100" type="submit" style="padding: 16px;">
+                        <span id="my-submit-button-text">Place Order</span>
+                    </button>
         <button
           type="button"
           id="place-order"
@@ -31,6 +37,7 @@
           <a v-bind:href="editCartUrl"><i class="fa fa-caret-left"></i> Return to Menu</a>
         </div>
       </div>
+      
     </div>
   </form>
 
@@ -117,7 +124,8 @@ export default {
 
       this.submissionInProgress = true;
 
-      if (this.orderForm.fields.paymentType === 'in-store') {
+  
+     if (this.orderForm.fields.paymentType === 'in-store') {
         this.$nextTick(() => {
           this.$refs.form.submit();
         });
@@ -155,3 +163,5 @@ export default {
   },
 };
 </script>
+
+ 

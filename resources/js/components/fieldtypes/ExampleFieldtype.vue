@@ -1,7 +1,9 @@
 <template>
     <div class="example-fieldtype-container">
         <text-input :value="value" @input="update" />
+        
     </div>
+   
 </template>
 
 <script>

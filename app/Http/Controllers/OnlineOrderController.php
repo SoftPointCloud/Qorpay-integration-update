@@ -17,7 +17,8 @@ use App\Models\{
     User,
 };
 use App\Helpers\PaymentManager;
-use App\Mail\{CustomOrderNotification, OrderComplete};
+use App\Mail\CustomOrderNotification;
+use App\Mail\OrderComplete;
 use App\ViewModels\MealPlanCartViewModel;
 use Carbon\Carbon;
 use Corcel\Model\Option;
@@ -441,12 +442,15 @@ class OnlineOrderController extends SiteController
         }
 
         $request->session()->put('url.intended', '');
-        Mail::to($order->email)->queue(new OrderComplete($order));
+       
 
         if ($cart->is_custom) {
             Mail::to($order->store->email)->queue(new CustomOrderNotification($order));
         }
-
+        // else{
+        //     Mail::to($order->email)->queue(new OrderComplete($order));
+        // }
+        
         $signedUrl = URL::signedRoute(
             'site.order-complete',
             ['order' => $order],
